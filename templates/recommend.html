@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommendation System</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+
+<body style="background-color:black">
+
+<!--navigation bar-->
+
+    <nav class="navbar" style="background-color:#00a65a">
+        <a class="navbar-brand">My Book recommender</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/" >Home</a></li>
+            <li><a href="recommend">Recommend</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+<!--body part-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white"  >Book Recommendations </h1>
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control" ><br>
+                    <input type="submit" class="btn btn-lg btn-success">
+                </form>
+            </div>
+
+            {% if data %}
+
+                {% for i in data %}
+                <div class="col-md-3" style="margin-top:30px ">
+                    <div class="">
+                        <img class="" src="{{i[2]}}" alt="image">
+                        <p class="text-white">{{i[0]}}</p>
+                        <p class="text-white">{{i[1]}}</p>
+
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>
